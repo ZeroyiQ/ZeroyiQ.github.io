@@ -15,10 +15,12 @@
 <meta property="og:url" content="zeroyiq.github.io/2017/06/01/Hexo-Github-Pages搭建个人独立博客/index.html">
 <meta property="og:site_name" content="ZeroyiQ">
 <meta property="og:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GithubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了.这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
-<meta property="og:updated_time" content="2017-06-01T06:45:00.881Z">
+<meta property="og:image" content="/img/6.1.1.png">
+<meta property="og:updated_time" content="2017-06-01T07:08:34.638Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github Pages搭建个人独立博客">
 <meta name="twitter:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GithubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了.这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
+<meta name="twitter:image" content="/img/6.1.1.png">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -188,6 +190,7 @@
 <h2 id="hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>安装Hexo</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//右键点击「Git bash here」</div><div class="line">$ D:</div><div class="line">$ mkdir blog</div><div class="line">$ npm install hexo-cli -g</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
 <p>如果出现 WARN 可以忽略继续</p>
+<hr>
 <h1 id="hexo常用命令"><a href="#Hexo常用命令" class="headerlink" title="Hexo常用命令"></a>Hexo常用命令</h1><p>安装以上三个后可以通过 hexo 的命令进行调试</p>
 <ol>
 <li>hexo generate(可简写成 hexo g) 用来生成静态文件，生成的文在存放在根目录(我这是 blog)下的 public 文件夹中</li>
@@ -196,7 +199,20 @@
 </ol>
 <p>以上三个命令还能组合使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo s -g #生成预览</div><div class="line">$ hexo d -g #生成部署</div></pre></td></tr></table></figure></p>
 <p>通过<code>hexo s -g</code> 生成预览后，我们通过浏览器打开 <a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a> 生成预览网页如下</p>
-<p><a href="">预览网页</a></p>
+<p><img src="/img/6.1.1.png" alt="预览网页"></p>
+<p>我当前安装的本地环境如下：(hexo -v 查看)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">hexo: 3.3.7</div><div class="line">hexo-cli: 1.0.2</div><div class="line">os: Windows_NT 10.0.15063 win32 x64</div><div class="line">http_parser: 2.7.0</div><div class="line">node: 6.10.3</div><div class="line">v8: 5.1.281.101</div><div class="line">uv: 1.9.1</div><div class="line">zlib: 1.2.11</div><div class="line">ares: 1.10.1-DEV</div><div class="line">icu: 58.2</div><div class="line">modules: 48</div><div class="line">openssl: 1.0.2k</div></pre></td></tr></table></figure>
+<h1 id="hexo-主题设置"><a href="#Hexo-主题设置" class="headerlink" title="Hexo 主题设置"></a>Hexo 主题设置</h1><p>这里我用的是 yilia 主题</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$hexo clean</div><div class="line">$git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</div></pre></td></tr></table></figure>
+<h2 id="启用主题"><a href="#启用主题" class="headerlink" title="启用主题"></a>启用主题</h2><p>在 hexo 的根目录(blog)下的 _config.yml 配置文件中的 theme 属性，将其设置为yilia</p>
+<pre><code>theme: yilia #注意 ：后有一个空格
+</code></pre><h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd themes/yilia</div><div class="line">$ git pull</div><div class="line">$ hexo s -g #生成预览</div></pre></td></tr></table></figure>
+<p>此时我们在打开<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>，会看到主题以及发生改变</p>
+<h1 id="githubpages设置"><a href="#GithubPages设置" class="headerlink" title="GithubPages设置"></a>GithubPages设置</h1><p><a href="https://pages.github.com/" target="_blank" rel="external">GithubPages</a>是一个面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages 默认提供的域名github.io 或者自定义域名来发布站点。</p>
+<p>每个账户只能有一个存放个人主页的仓库，仓库名字必须是 username.github.io 。<br>这样设置后，你就可以通过 http;//username.github.io 来访问你自己的个人主页</p>
+<p>tips：个人主页的网站要在 master 分支下</p>
+<p>##创建GithubPages</p>
+<p>注册和 repository 的创建都很简单，这里不再赘述，记得这个仓库名字必须是 username.github.io ，并且这个仓库创建完成后记得要有一次提交(git commit)操作</p>
 
       
 
