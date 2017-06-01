@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ZeroyiQ">
 <meta property="og:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GitHubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了。这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
 <meta property="og:image" content="/img/6.1.1.png">
-<meta property="og:updated_time" content="2017-06-01T11:46:03.211Z">
+<meta property="og:updated_time" content="2017-06-01T11:47:36.896Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github Pages搭建个人独立博客">
 <meta name="twitter:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GitHubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了。这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
@@ -223,7 +223,7 @@
 <h1 id="修改主题中的配置"><a href="#修改主题中的配置" class="headerlink" title="修改主题中的配置"></a>修改主题中的配置</h1><h2 id="添加-readme"><a href="#添加-README" class="headerlink" title="添加 README"></a>添加 README</h2><p>我们要搞明白 Hexo 的运行过程，首先在更目录下有 source、public 两个文件夹，还记得之前所说的 public 文件夹下存放的是通过 <code>hexo -generate</code> 生成的静态网页，这两个文件关系如下：</p>
 <pre><code>source-&gt;public-&gt;GitHub
 </code></pre><p>因此，我们只用在 source 文件中添加 README 就能够保证 GitHub 上一直有 README 不用多次添加了。(注意 README 文件的格式是 MDWN )</p>
-<h2 id="添加头像-amp-添加友链"><a href="#添加头像-amp-添加友链" class="headerlink" title="添加头像 &amp; 添加友链"></a>添加头像 &amp; 添加友链</h2><p>我们可以把要作为头像的图片，放到 &lt;\themes\yilia\source\img&gt; 目录下。然后到 &lt;\themes\yilia&gt;目录下找到 _config.yml 文件，打开，更改里面的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#你的头像url</div><div class="line">avatar: /img/example.png</div><div class="line"></div><div class="line">friends:</div><div class="line">  友情链接1: http://localhost:4000/</div><div class="line">  友情链接2: http://localhost:4000/</div><div class="line">  友情链接3: http://localhost:4000/</div><div class="line">  友情链接4: http://localhost:4000/</div></pre></td></tr></table></figure></p>
+<h2 id="添加头像-amp-添加友链"><a href="#添加头像-amp-添加友链" class="headerlink" title="添加头像 &amp; 添加友链"></a>添加头像 &amp; 添加友链</h2><p>我们可以把要作为头像的图片，放到 ，\themes\yilia\source\img 目录下。然后到 \themes\yilia 目录下找到 _config.yml 文件，打开，更改里面的配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#你的头像url</div><div class="line">avatar: /img/example.png</div><div class="line"></div><div class="line">friends:</div><div class="line">  友情链接1: http://localhost:4000/</div><div class="line">  友情链接2: http://localhost:4000/</div><div class="line">  友情链接3: http://localhost:4000/</div><div class="line">  友情链接4: http://localhost:4000/</div></pre></td></tr></table></figure></p>
 
       
 
