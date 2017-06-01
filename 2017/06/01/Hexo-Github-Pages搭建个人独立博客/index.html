@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="ZeroyiQ">
 <meta property="og:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GithubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了.这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
 <meta property="og:image" content="/img/6.1.1.png">
-<meta property="og:updated_time" content="2017-06-01T07:08:34.638Z">
+<meta property="og:updated_time" content="2017-06-01T07:10:20.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github Pages搭建个人独立博客">
 <meta name="twitter:description" content="[TOC] 前言搭建 Blog 这个坑真的是堆了很久，其实 Hexo+GithubPages 搭建 Bolg 以前就试过一次，然而没坚持下来，搭建到一半就搁着了.这次一口气搭建完，也是督促自己不能偷懒。好了废话不多说，惯例，记录下我搭建这个 Blog 的过程，有可能不会特别正确，请多见谅。 准备工作GitGit 是一个分布式版本控制系统，这里不做深入探讨，这里使用的目的是用来将 Hexo 生成的静">
@@ -208,12 +208,11 @@
 <pre><code>theme: yilia #注意 ：后有一个空格
 </code></pre><h2 id="更新主题"><a href="#更新主题" class="headerlink" title="更新主题"></a>更新主题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd themes/yilia</div><div class="line">$ git pull</div><div class="line">$ hexo s -g #生成预览</div></pre></td></tr></table></figure>
 <p>此时我们在打开<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>，会看到主题以及发生改变</p>
-<h1 id="githubpages设置"><a href="#GithubPages设置" class="headerlink" title="GithubPages设置"></a>GithubPages设置</h1><p><a href="https://pages.github.com/" target="_blank" rel="external">GithubPages</a>是一个面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages 默认提供的域名github.io 或者自定义域名来发布站点。</p>
+<h1 id="githubpages-设置"><a href="#GithubPages-设置" class="headerlink" title="GithubPages 设置"></a>GithubPages 设置</h1><p><a href="https://pages.github.com/" target="_blank" rel="external">GithubPages</a>是一个面向用户、组织和项目开放的公共静态页面搭建托管服务，站点可以被免费托管在Github 上，你可以选择使用Github Pages 默认提供的域名github.io 或者自定义域名来发布站点。</p>
 <p>每个账户只能有一个存放个人主页的仓库，仓库名字必须是 username.github.io 。<br>这样设置后，你就可以通过 http;//username.github.io 来访问你自己的个人主页</p>
 <p>tips：个人主页的网站要在 master 分支下</p>
-<p>##创建GithubPages</p>
-<p>注册和 repository 的创建都很简单，这里不再赘述，记得这个仓库名字必须是 username.github.io ，并且这个仓库创建完成后记得要有一次提交(git commit)操作</p>
-
+<h2 id="创建-githubpages"><a href="#创建-GithubPages" class="headerlink" title="创建 GithubPages"></a>创建 GithubPages</h2><p>注册和 repository 的创建都很简单，这里不再赘述，记得这个仓库名字必须是 username.github.io ，并且这个仓库创建完成后记得要有一次提交(git commit)操作</p>
+<h1 id="部署-hexo-到远程仓库-github"><a href="#部署-Hexo-到远程仓库-Github" class="headerlink" title="部署 Hexo 到远程仓库 Github"></a>部署 Hexo 到远程仓库 Github</h1>
       
 
       
