@@ -173,12 +173,30 @@
 <ul>
 <li><a href="#前言">前言</a></li>
 <li><a href="#butter-knife">Butter Knife</a></li>
+<li><a href="#简介">简介</a></li>
+<li><a href="#资源绑定">资源绑定</a></li>
+<li><a href="#非-activity-中绑定">非 Activity 中绑定</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 <code>butterKnife</code> 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考<a href="http://www.jianshu.com/p/9ad21e548b69" target="_blank" rel="external">Android Butter Knife 框架——最好用的View注入</a>和<a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">官方文档</a>。本人英语较渣，欢迎有余力的同学也去看看官方文档。</p>
 </blockquote>
-<h1 id="butter-knife"><a href="#Butter-Knife" class="headerlink" title="Butter Knife"></a>Butter Knife</h1><p> 专门为</p>
+<h1 id="butter-knife"><a href="#Butter-Knife" class="headerlink" title="Butter Knife"></a>Butter Knife</h1><p> Butter Knife，是专门为 View 设计的绑定注释，解决需要大量 findViewByID 代码量大的问题。</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> 通过 <code>@BindView</code> 注释，并传入一个 View 的 ID，Butter Knife 就能去找到并自动绑定 layout 中对应的 View</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.title) TextView title;</div><div class="line">  <span class="meta">@BindView</span>(R.id.subtitle) TextView subtitle;</div><div class="line">  <span class="meta">@BindView</span>(R.id.footer) TextView footer;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.simple_activity);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>代码的生产被用来执行 View 的查询，而不再是缓慢的反射。调用 <code>bind</code> 来生成代码，你可以打开它进行调试。上面生成的代码大致等于如下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bind</span><span class="params">(ExampleActivity activity)</span> </span>&#123;</div><div class="line">  activity.subtitle = (android.widget.TextView) activity.findViewById(<span class="number">2130968578</span>);</div><div class="line">  activity.footer = (android.widget.TextView) activity.findViewById(<span class="number">2130968579</span>);</div><div class="line">  activity.title = (android.widget.TextView) activity.findViewById(<span class="number">2130968577</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="资源绑定"><a href="#资源绑定" class="headerlink" title="资源绑定"></a>资源绑定</h1><p>可以使用 <code>@BindBool</code>,<code>@BindColor</code>,<code>@BindDimen</code>,<code>@BindDrawable</code>,<code>@BindInt</code>,<code>@BindString</code>这些绑定注释，通过传入相应的 ID 来 绑定相应的预定义资源</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindString</span>(R.string.title) String title;</div><div class="line">  <span class="meta">@BindDrawable</span>(R.drawable.graphic) Drawable graphic;</div><div class="line">  <span class="meta">@BindColor</span>(R.color.red) <span class="keyword">int</span> red; <span class="comment">// int or ColorStateList field</span></div><div class="line">  <span class="meta">@BindDimen</span>(R.dimen.spacer) Float spacer; <span class="comment">// int (for pixel size) or float (for exact value) field</span></div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="非-activity-中绑定"><a href="#非-Activity-中绑定" class="headerlink" title="非 Activity 中绑定"></a>非 Activity 中绑定</h1><p>Butter Knife 中 <code>bind</code> 有多个重载，只要传入相应的布局，在任何你自己的视图中都能使用。</p>
+<p>例如 Fragment 如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FancyFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button1) Button button1;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button2) Button button2;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    View view = inflater.inflate(R.layout.fancy_fragment, container, <span class="keyword">false</span>);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>, view);</div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另一种使用是用来简化 list 适配器的过程(Another use is simplifying the view holder pattern inside of a list adapter. 对 Adapter 还不是特别熟练，所以直接将原文贴在这里了 )</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View view, ViewGroup parent)</span> </span>&#123;</div><div class="line">    ViewHolder holder;</div><div class="line">    <span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</div><div class="line">      holder = (ViewHolder) view.getTag();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      view = inflater.inflate(R.layout.whatever, parent, <span class="keyword">false</span>);</div><div class="line">      holder = <span class="keyword">new</span> ViewHolder(view);</div><div class="line">      view.setTag(holder);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    holder.name.setText(<span class="string">"John Doe"</span>);</div><div class="line">    <span class="comment">// etc...</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="meta">@BindView</span>(R.id.title) TextView name;</div><div class="line">    <span class="meta">@BindView</span>(R.id.job_title) TextView jobTitle;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">      ButterKnife.bind(<span class="keyword">this</span>, view);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>你可以使用  <code>ButterKnife.bind</code> 在任何你想使用 <code>findViewById</code> 的地方</p>
+<p>其他提供的绑定 API：</p>
+<ul>
+<li>使用一个 Activity 作为 View root 绑定任意对象。如果你使用像 MVC 模式，你可以通过 Controller 所在的 Activity ，使用 <code>ButterKnife.bind(this,activity)</code> 来绑定 Controller</li>
+<li>使用<code>ButterKnife.bind(this)</code>绑定一个布局的子布局。如果你在布局中使用了<code>&lt;merge&gt;</code>标签并且在自定义的控件构造时 inflate 这个布局，你可以在 inflate 之后立即调用它。或者，你可以在<code>onFinishInflate()</code>回调中使用它。</li>
+</ul>
 
       
 
@@ -224,7 +242,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">javaFx 8 的学习心路(挖坑)</a>
+      <a class="article-title" href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">JavaFx 8 的学习心路(挖坑)</a>
     </h1>
   
 
@@ -237,15 +255,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#目录</p>
-<!-- toc -->
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- toc -->
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#javafx-8-介绍">JavaFX 8 介绍</a></li>
+</ul>
 <!-- tocstop -->
-<p>#前言</p>
-<blockquote>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，<a href="https://kotlinlang.org/" target="_blank" rel="external">Kotlin</a>好像就挺不错的<code>_(:з」∠)_</code>)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好其实又跑回去，自学了点 Swing，写了点小东西。如今看到 JavaFx 大变样了，又回来填坑。我也只是个菜鸟，本文只能算是我的学习笔记，如果有错误欢迎指出，希望对来者有所帮助。</p>
 </blockquote>
-<p>#JavaFX 8 介绍</p>
-<p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a></p>
+<h1 id="javafx-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a></p>
 
       
 
