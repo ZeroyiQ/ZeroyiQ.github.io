@@ -8,16 +8,16 @@
   <link rel="dns-prefetch" href="zeroyiq.github.io">
   <title>JavaFx 8 的学习心路(挖坑) | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录  前言 JavaFX 8 介绍   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就">
+  <meta name="description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaFx 8 的学习心路(挖坑)">
 <meta property="og:url" content="zeroyiq.github.io/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录  前言 JavaFX 8 介绍   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就">
-<meta property="og:updated_time" content="2017-06-10T01:52:52.948Z">
+<meta property="og:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
+<meta property="og:updated_time" content="2017-07-06T15:32:38.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaFx 8 的学习心路(挖坑)">
-<meta name="twitter:description" content="目录  前言 JavaFX 8 介绍   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就">
+<meta name="twitter:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -175,12 +175,22 @@
 <ul>
 <li><a href="#前言">前言</a></li>
 <li><a href="#javafx-8-介绍">JavaFX 8 介绍</a></li>
+<li><a href="#fx架构">Fx架构</a><ul>
+<li><a href="#mvc">MVC</a></li>
+</ul>
+</li>
+<li><a href="#mvc-在-fx-中的对应关系">MVC 在 Fx 中的对应关系</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，<a href="https://kotlinlang.org/" target="_blank" rel="external">Kotlin</a>好像就挺不错的<code>_(:з」∠)_</code>)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好其实又跑回去，自学了点 Swing，写了点小东西。如今看到 JavaFx 大变样了，又回来填坑。我也只是个菜鸟，本文只能算是我的学习笔记，如果有错误欢迎指出，希望对来者有所帮助。</p>
 </blockquote>
-<h1 id="javafx-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a></p>
+<h1 id="javafx-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a><br>JavaFx 被包含在 Java 8 中，是 Java 8 的应用程序中官方推荐的图形工具包。</p>
+<h1 id="fx架构"><a href="#Fx架构" class="headerlink" title="Fx架构"></a>Fx架构</h1><p>首先我们要明白新版本的 JavaFx 脱离了原来 Swing 的样子，采用了一种叫做 <code>MVC</code>的设计模式。</p>
+<h2 id="mvc"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC 是三个字母的缩写</p>
+<p>-M(Mode):模型层，封装了程序中最底层的数据部分<br>-V(View):视图层，是程序最上面的一层，是直接面向用户的操作界面<br>-C(Controller)：控制层，是中间的一层，负责处理用户请求，并且构建何时的模型并将其传递到视图呈现</p>
+<p>这三层是紧密联系在一起的，但又是相互独立的，每一层内部的变化不影响其他层。模块化后<br>能够降低耦合性，可维护性高并且增强了拓展性。</p>
+<h1 id="mvc-在-fx-中的对应关系"><a href="#MVC-在-Fx-中的对应关系" class="headerlink" title="MVC 在 Fx 中的对应关系"></a>MVC 在 Fx 中的对应关系</h1><p>-Mode：创建的模型类<br>-View：用 <code>.fxml</code> 文件表示界面，基于 XML 文件，如果你学过 XML 会发现 FXMl 和 XML 及其相似。如果你使用的是 IDEA 可以在 Scene Builder 分页中预览图像界面，并且可以使用拖动的方式将左侧的控件直接拖入到预览区<br>-Controller：创建的控制方法，响应 View 中用户的操作，修改 Mode 中的数据，并且将新的数据展现先 View 层</p>
 
       
 
