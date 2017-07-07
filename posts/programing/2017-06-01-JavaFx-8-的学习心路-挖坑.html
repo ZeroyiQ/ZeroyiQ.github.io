@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="zeroyiq.github.io">
-  <title>JavaFx 8 的学习心路(挖坑) | ZeroyiQ</title>
+  <title>JavaFx 8 的学习心路 | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
+  <meta name="description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC MVC 在 Fx 中的对应关系   机械分词小程序 结构 程序执行结果 NLP.java sample.fxml Controller.java Main.java   总结   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaFx 8 的学习心路(挖坑)">
+<meta property="og:title" content="JavaFx 8 的学习心路">
 <meta property="og:url" content="zeroyiq.github.io/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
-<meta property="og:updated_time" content="2017-07-06T15:37:39.015Z">
+<meta property="og:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC MVC 在 Fx 中的对应关系   机械分词小程序 结构 程序执行结果 NLP.java sample.fxml Controller.java Main.java   总结   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把">
+<meta property="og:image" content="/img/2017.7.7.1.png">
+<meta property="og:image" content="/img/2017.7.7.2.png">
+<meta property="og:image" content="/img/2017.7.7.3.png">
+<meta property="og:image" content="/img/2017.7.7.4.png">
+<meta property="og:image" content="/img/2017.7.7.5.png">
+<meta property="og:image" content="/img/2017.7.7.6.png">
+<meta property="og:image" content="/img/2017.7.7.7.png">
+<meta property="og:updated_time" content="2017-07-07T05:50:53.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaFx 8 的学习心路(挖坑)">
-<meta name="twitter:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC   MVC 在 Fx 中的对应关系   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，">
+<meta name="twitter:title" content="JavaFx 8 的学习心路">
+<meta name="twitter:description" content="目录  前言 JavaFX 8 介绍 Fx架构 MVC MVC 在 Fx 中的对应关系   机械分词小程序 结构 程序执行结果 NLP.java sample.fxml Controller.java Main.java   总结   前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把">
+<meta name="twitter:image" content="/img/2017.7.7.1.png">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -158,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaFx 8 的学习心路(挖坑)
+      JavaFx 8 的学习心路
     </h1>
   
 
@@ -177,9 +185,19 @@
 <li><a href="#javafx-8-介绍">JavaFX 8 介绍</a></li>
 <li><a href="#fx架构">Fx架构</a><ul>
 <li><a href="#mvc">MVC</a></li>
+<li><a href="#mvc-在-fx-中的对应关系">MVC 在 Fx 中的对应关系</a></li>
 </ul>
 </li>
-<li><a href="#mvc-在-fx-中的对应关系">MVC 在 Fx 中的对应关系</a></li>
+<li><a href="#机械分词小程序">机械分词小程序</a><ul>
+<li><a href="#结构">结构</a></li>
+<li><a href="#程序执行结果">程序执行结果</a></li>
+<li><a href="#nlpjava">NLP.java</a></li>
+<li><a href="#samplefxml">sample.fxml</a></li>
+<li><a href="#controllerjava">Controller.java</a></li>
+<li><a href="#mainjava">Main.java</a></li>
+</ul>
+</li>
+<li><a href="#总结">总结</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
@@ -188,10 +206,50 @@
 <h1 id="javafx-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a><br>JavaFx 被包含在 Java 8 中，是 Java 8 的应用程序中官方推荐的图形工具包。</p>
 <h1 id="fx架构"><a href="#Fx架构" class="headerlink" title="Fx架构"></a>Fx架构</h1><p>首先我们要明白新版本的 JavaFx 脱离了原来 Swing 的样子，采用了一种叫做 <code>MVC</code>的设计模式。</p>
 <h2 id="mvc"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC 是三个字母的缩写</p>
-<p>-M(Mode):模型层，封装了程序中最底层的数据部分<br>-V(View):视图层，是程序最上面的一层，是直接面向用户的操作界面<br>-C(Controller)：控制层，是中间的一层，负责处理用户请求，并且构建何时的模型并将其传递到视图呈现</p>
+<ul>
+<li>M(Mode):模型层，封装了程序中最底层的数据部分</li>
+<li>V(View):视图层，是程序最上面的一层，是直接面向用户的操作界面</li>
+<li>C(Controller)：控制层，是中间的一层，负责处理用户请求，并且构建何时的模型并将其传递到视图呈现</li>
+</ul>
 <p>这三层是紧密联系在一起的，但又是相互独立的，每一层内部的变化不影响其他层。模块化后能够降低耦合性，可维护性高并且增强了拓展性。</p>
-<h1 id="mvc-在-fx-中的对应关系"><a href="#MVC-在-Fx-中的对应关系" class="headerlink" title="MVC 在 Fx 中的对应关系"></a>MVC 在 Fx 中的对应关系</h1><p>-Mode：创建的模型类<br>-View：用 <code>.fxml</code> 文件表示界面，基于 XML 文件，如果你学过 XML 会发现 FXMl 和 XML 及其相似。(如果你使用的是 IDEA 可以在 Scene Builder 分页中预览图像界面，并且可以使用拖动的方式将左侧的控件直接拖入到预览区)<br>-Controller：创建的控制方法，响应 View 中用户的操作，修改 Mode 中的数据，并且将新的数据展现先 View 层</p>
-
+<h2 id="mvc-在-fx-中的对应关系"><a href="#MVC-在-Fx-中的对应关系" class="headerlink" title="MVC 在 Fx 中的对应关系"></a>MVC 在 Fx 中的对应关系</h2><ul>
+<li>Mode：创建的模型类</li>
+<li>View：用 <code>.fxml</code> 文件表示界面，基于 XML 文件，如果你学过 XML 会发现 FXMl 和 XML 及其相似。(如果你使用的是 IDEA 可以在 Scene Builder 分页中预览图像界面，并且可以使用拖动的方式将左侧的控件直接拖入到预览区)</li>
+<li>Controller：创建的控制方法，响应 View 中用户的操作，修改 Mode 中的数据，并且将新的数据展现先 View 层</li>
+</ul>
+<h1 id="机械分词小程序"><a href="#机械分词小程序" class="headerlink" title="机械分词小程序"></a>机械分词小程序</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>IDEA创建 FX 工程<br><img src="/img/2017.7.7.1.png" alt="IDEA自动生成"></p>
+<p>根据项目添加类<br><img src="/img/2017.7.7.2.png" alt="添加后"></p>
+<ul>
+<li>NLP.java:Mode</li>
+<li>sample.fxml:View</li>
+<li>Controller.java:Controller</li>
+<li>Main.java:主程序入口</li>
+<li>fingerDic.txt:词典</li>
+</ul>
+<h2 id="程序执行结果"><a href="#程序执行结果" class="headerlink" title="程序执行结果"></a>程序执行结果</h2><p><img src="/img/2017.7.7.3.png" alt="程序执行结果"></p>
+<h2 id="nlpjava"><a href="#NLP-java" class="headerlink" title="NLP.java"></a>NLP.java</h2><p>这是机械分词的核心部分，作用是加载「词典」文件。包含一个<code>getSResult()</code>的方法，能够将传入的句子与加载的词典比较，将句子分词后传回一个分词好的 String。</p>
+<p><img src="/img/2017.7.7.4.png" alt="NLP.java"></p>
+<h2 id="samplefxml"><a href="#sample-fxml" class="headerlink" title="sample.fxml"></a>sample.fxml</h2><p>fxml 与 xml 及其相似，都是属于可标记语言。我们切到 Scene Builder 可以看见左边有多种 Containers (容器/布局)可供选择。布局就有点像是房屋规划的图，我们要选择合适的布局，这里仅选择 Anchor Pane 就好。Anchor Pane 可以将控件(如前图的按钮，文本框之类的)锚定到面板的某个位置。<a href="http://blog.csdn.net/theonegis/article/details/50184811" target="_blank" rel="external">了解更多 FX 布局</a></p>
+<p><img src="/img/2017.7.7.5.png" alt="sample.fxml"></p>
+<ol>
+<li>在 <code>AncherPane</code> 中添加一个 <code>fx:controller=&quot;&quot;</code>的属性，内容是 Controller.java 路径</li>
+<li>注意我们在每一个控件中需要添加一个 <code>fx:id=&quot;&quot;</code>的属性，这是为了之后我们在 「Controller.java」中能够找个相应的控件进行操作</li>
+<li>在 Button 控件中添加一个 <code>onAction=&quot;&quot;</code>属性，内容是「#」+点击该按钮要调用的方法(这里是 startNLP,调用自后面的Controller.java中)</li>
+</ol>
+<h2 id="controllerjava"><a href="#Controller-java" class="headerlink" title="Controller.java"></a>Controller.java</h2><p>整个程序的中间层，sample 中的 Button 调用该类中的 <code>startNLP()</code>方法，通过该方法，Controller 调用 NLP 类，并且将结果返回，Controller 根据返回的结果修改 sample 中 TextArea 的内容。</p>
+<p><img src="/img/2017.7.7.6.png" alt="Controller"></p>
+<p>PS：通过绑定注释<code>@FXML</code>的方法绑定 sample.fxml 中的控件，注意命名要一致。</p>
+<h2 id="mainjava"><a href="#Main-java" class="headerlink" title="Main.java"></a>Main.java</h2><p>程序的主入口。</p>
+<p><img src="/img/2017.7.7.7.png" alt="Main"></p>
+<ol>
+<li>继承自 Application </li>
+<li>重写了<code>start()</code>方法</li>
+<li>设置根节点并加载相应的 fxml 文件</li>
+<li>为基础舞台<code>primaryStage</code>设置标题<code>setTitle()</code>、舞台<code>setScene()</code>(Stage 与 Scene 的关系有点像舞台和舞台上的场景一样。从外到里看，Stage是最外面的部分，Scene是第二层，布局Pane是第三层，最里面就是各种控件)、能否修改大小<code>setResizeable()</code>并展示<code>show()</code>出来</li>
+<li>在主函数中启动<code>launch</code></li>
+</ol>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这就是 FX 最基本的应用了，如果想深入使用，请多使用 Google+文档 能够解决大部分问题。上文中有可能有些地方写的不是很恰当，请多多包涵。Java 8 之后 FX 抛弃了以前长长的代码段的界面形式(要不断调用各种方法)，终于改用了方便FXML的方式，尤其是我正在学习 Android 这种相同的做法，我还是觉得挺不错的。</p>
+<p align="right">填坑完毕        ——2017.7.7  Beijing</p>
       
 
       
