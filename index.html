@@ -156,7 +156,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html">「Kotlin」学习笔记（一）</a>
+      <a class="article-title" href="/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html">「Kotlin」学习笔记（一）命令行环境搭建</a>
     </h1>
   
 
@@ -172,11 +172,48 @@
         <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- toc -->
 <ul>
 <li><a href="#前言">前言</a></li>
+<li><a href="#配置-java-开发环境">配置 Java 开发环境</a></li>
+<li><a href="#cli-学习方式">CLI 学习方式</a></li>
+<li><a href="#安装-kotlin">安装 Kotlin</a><ul>
+<li><a href="#step-1">Step 1</a></li>
+<li><a href="#step-2">Step 2</a></li>
+<li><a href="#step-3">Step 3</a></li>
+</ul>
+</li>
+<li><a href="#运行第一个-kotlin-程序">运行第一个 Kotlin 程序</a><ul>
+<li><a href="#step-1-1">Step 1</a></li>
+<li><a href="#step-2-1">Step 2</a></li>
+<li><a href="#step-3-1">Step 3</a></li>
+</ul>
+</li>
+<li><a href="#通过-repl交互式解释器-运行">通过 REPL(交互式解释器) 运行</a></li>
+<li><a href="#退出-repl">退出 REPL</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>继续挖坑</p>
+<p>Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains 设计开发并开源。Kotlin 可以编译成 Java 字节码，也可以编译成 JavaScript，方便在没有 JVM 的设备上运行。</p>
 </blockquote>
+<p>正是由于 Kotlin 如此高的地位，并且在 2017 年的 I/O 开发者大会上被 Google 官方承认，正式作为 Android 官方开发语言。所以我对其产生了浓厚的学习兴趣，正式与 Android 学习并行，开启 Kotlin 学习之路。本系列将记录我在学习过程中的所有过程。希望对后来者有所帮助。</p>
+<h1 id="配置-java-开发环境"><a href="#配置-Java-开发环境" class="headerlink" title="配置 Java 开发环境"></a>配置 Java 开发环境</h1><p>Kotlin 是基于 Java 语言的，所以要先安装好 Java 开发环境，并配置好环境变量。由于 Java 开发环境配置的资料比较全面，这里就不再多说，请不会的同学，自己百度下。</p>
+<h1 id="cli-学习方式"><a href="#CLI-学习方式" class="headerlink" title="CLI 学习方式"></a>CLI 学习方式</h1><p>一门新语言的出现，最权威的地方，无疑是官方。依旧推荐有能力的同学去官网，看<a href="https://kotlinlang.org/docs/reference/" target="_blank" rel="external">官方文档</a>。</p>
+<p>学习一门新语言的最开始，最好是通过命令行界面(CLI)的方式,能便于你理解 Kotlin 运行原理，这也是 stromzhang 强烈推荐的方式，如果是科班出身的也应该知道老师们教授一门新语言的方式也是这样的。如果一上来就使用重量级的 IDE 工具，会降低对语言的理解，产生对于 IDE 工具的依赖，不利于今后的学习。</p>
+<h1 id="安装-kotlin"><a href="#安装-Kotlin" class="headerlink" title="安装 Kotlin"></a>安装 Kotlin</h1><h2 id="step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p><a href="https://github.com/JetBrains/kotlin/releases" target="_blank" rel="external">下载地址</a><br>下载最新版本，解压。</p>
+<h2 id="step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>添加 <code>bin</code>路径到系统变量 path 中，与配置 Java 路径类似。<br>(注意一点，路径中不能存在空格，文件名字中不能存在空格，文件名字中不能存在空格，重要事情重复三遍)</p>
+<p>这里展示我配置好的图片：<br>KOTLIN_HOME<br><img src="/img/2017.7.9.1.png" alt="KOTLIN_HOME"></p>
+<p>Path<br><img src="/img/2017.7.9.2.png" alt="Path"></p>
+<h2 id="step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>win+r 输入 <code>cmd</code>，在命令行界面输入 <code>kotlin -help</code>,如果出现了一些帮助命令，则表示配置正确。</p>
+<h1 id="运行第一个-kotlin-程序"><a href="#运行第一个-Kotlin-程序" class="headerlink" title="运行第一个 Kotlin 程序"></a>运行第一个 Kotlin 程序</h1><p>写一个能打印出 <code>Welcome to Kotlin!</code> 的小程序。</p>
+<h2 id="step-1"><a href="#Step-1-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>创建一个叫做「Welcome」的文件，后缀改为「.tk 」，用编辑器打开，写入以下代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function">fun <span class="title">main</span><span class="params">(args:Array&lt;String&gt;)</span></span>&#123;</div><div class="line">	println(<span class="string">"Welcome to Kotlin!"</span>)  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="step-2"><a href="#Step-2-1" class="headerlink" title="Step 2"></a>Step 2</h2><p>在命令行中使用 <code>Kotlinc</code>编译刚才写好的源文件。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ kotlinc Welcome.kt -include-runtime -d Welcome.jar</div></pre></td></tr></table></figure></p>
+<ul>
+<li><strong> -include-runtime </strong>：让 .jar 文件包含 Kotlin 运行库，从而可以直接运行</li>
+<li><strong> -d </strong>：用来设置编译后输出类型，可以是 class 或者 jar，也可以是目录</li>
+</ul>
+<h2 id="step-3"><a href="#Step-3-1" class="headerlink" title="Step 3"></a>Step 3</h2><p>运行程序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ java -jar hello.jar</div><div class="line">Welcome to Kotlin!</div></pre></td></tr></table></figure></p>
+<h1 id="通过-repl交互式解释器-运行"><a href="#通过-REPL-交互式解释器-运行" class="headerlink" title="通过 REPL(交互式解释器) 运行"></a>通过 REPL(交互式解释器) 运行</h1><p>我们可以运行<code>kotlinc</code>命令得到一个可交互的 Shell，输入任何有效的 Kotlin 代码，立刻看见效果。<br><img src="/img/2017.7.9.3.png" alt="Kotlinc"></p>
+<h1 id="退出-repl"><a href="#退出-REPL" class="headerlink" title="退出 REPL"></a>退出 REPL</h1><p>我们可以通过 ctrl+C 的方式，当然推荐另一种如下的方式更优雅XD。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/2017.7.9.4.png" alt="System.exit(0)"></h2><p><strong> <p align="right">To Be Continued!</p> </strong></p>
 
       
 
