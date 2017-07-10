@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="zeroyiq.github.io">
   <title>「Kotlin」学习笔记（一）命令行环境搭建 | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains">
+  <meta name="description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL Kotlin 脚本   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「Kotlin」学习笔记（一）命令行环境搭建">
 <meta property="og:url" content="zeroyiq.github.io/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains">
+<meta property="og:description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL Kotlin 脚本   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由">
 <meta property="og:image" content="/img/2017.7.9.1.png">
 <meta property="og:image" content="/img/2017.7.9.2.png">
 <meta property="og:image" content="/img/2017.7.9.3.png">
 <meta property="og:image" content="/img/2017.7.9.4.png">
-<meta property="og:updated_time" content="2017-07-09T05:34:04.455Z">
+<meta property="og:updated_time" content="2017-07-10T12:55:39.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「Kotlin」学习笔记（一）命令行环境搭建">
-<meta name="twitter:description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由 JetBrains">
+<meta name="twitter:description" content="目录  前言 配置 Java 开发环境 CLI 学习方式 安装 Kotlin Step 1 Step 2 Step 3   运行第一个 Kotlin 程序 Step 1 Step 2 Step 3   通过 REPL(交互式解释器) 运行 退出 REPL Kotlin 脚本   前言 Kotlin 是一种在 Java 虚拟机上运行的静态类型编程语言，被称之为 Android 世界的 Swift，由">
 <meta name="twitter:image" content="/img/2017.7.9.1.png">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
@@ -195,6 +195,7 @@
 </li>
 <li><a href="#通过-repl交互式解释器-运行">通过 REPL(交互式解释器) 运行</a></li>
 <li><a href="#退出-repl">退出 REPL</a></li>
+<li><a href="#kotlin-脚本">Kotlin 脚本</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
@@ -219,8 +220,16 @@
 </ul>
 <h2 id="step-3"><a href="#Step-3-1" class="headerlink" title="Step 3"></a>Step 3</h2><p>运行程序<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ java -jar hello.jar</div><div class="line">Welcome to Kotlin!</div></pre></td></tr></table></figure></p>
 <h1 id="通过-repl交互式解释器-运行"><a href="#通过-REPL-交互式解释器-运行" class="headerlink" title="通过 REPL(交互式解释器) 运行"></a>通过 REPL(交互式解释器) 运行</h1><p>我们可以运行<code>kotlinc</code>命令得到一个可交互的 Shell，输入任何有效的 Kotlin 代码，立刻看见效果。<br><img src="/img/2017.7.9.3.png" alt="Kotlinc"></p>
-<h1 id="退出-repl"><a href="#退出-REPL" class="headerlink" title="退出 REPL"></a>退出 REPL</h1><p>我们可以通过 ctrl+C 的方式，当然推荐另一种如下的方式更优雅XD。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/img/2017.7.9.4.png" alt="System.exit(0)"></h2><p><strong> <p align="right">To Be Continued!</p> </strong></p>
+<h1 id="退出-repl"><a href="#退出-REPL" class="headerlink" title="退出 REPL"></a>退出 REPL</h1><p>我们可以通过 ctrl+C 的方式，当然推荐另一种如下的方式更优雅XD。<br><img src="/img/2017.7.9.4.png" alt="System.exit(0)"></p>
+<h1 id="kotlin-脚本"><a href="#Kotlin-脚本" class="headerlink" title="Kotlin 脚本"></a>Kotlin 脚本</h1><p>Kotlin 最方便的就是能够直接执行脚本，所谓脚本就是直接运行写在文件中的代码，不用进行编译。<br>Kotlin 脚本文件的格式是「.kts」，当我们创建一个「Line.kts」脚本文件时候。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">println(<span class="string">"Line 1"</span>)</div><div class="line">var test=<span class="string">"Line 2"</span></div><div class="line">println(<span class="string">"This is"</span>+test)</div></pre></td></tr></table></figure>
+<p>然后输入指令 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">kotlinc -script Line.kts</div></pre></td></tr></table></figure>
+<p>则会让脚本文件中的代码依次执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Line <span class="number">1</span></div><div class="line">This is Line <span class="number">2</span></div></pre></td></tr></table></figure>
+<p>这样我们就可以使用 kotlin 脚本来测试、计算或者爬虫之类的，方便快捷。</p>
+<hr>
+<p><strong> <p align="right">To Be Continued!</p> </strong></p>
 
       
 
