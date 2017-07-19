@@ -288,6 +288,7 @@
 <li><a href="#简介">简介</a></li>
 <li><a href="#资源绑定">资源绑定</a></li>
 <li><a href="#非-activity-中绑定">非 Activity 中绑定</a></li>
+<li><a href="#view-列表">View 列表</a></li>
 </ul>
 <!-- tocstop -->
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
@@ -309,6 +310,8 @@
 <li>使用一个 Activity 作为 View root 绑定任意对象。如果你使用像 MVC 模式，你可以通过 Controller 所在的 Activity ，使用 <code>ButterKnife.bind(this,activity)</code> 来绑定 Controller</li>
 <li>使用<code>ButterKnife.bind(this)</code>绑定一个布局的子布局。如果你在布局中使用了<code>&lt;merge&gt;</code>标签并且在自定义的控件构造时 inflate 这个布局，你可以在 inflate 之后立即调用它。或者，你可以在<code>onFinishInflate()</code>回调中使用它。</li>
 </ul>
+<h1 id="view-列表"><a href="#View-列表" class="headerlink" title="View 列表"></a>View 列表</h1><p>你可以将多个 View 放在列表或者数组中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@BindViews</span>(&#123; R.id.first_name, R.id.middle_name, R.id.last_name &#125;)</div><div class="line">List&lt;EditText&gt; nameViews;</div></pre></td></tr></table></figure></p>
+<p>apply 函数能够允许你在一个列表中执行操作</p>
 
       
 
