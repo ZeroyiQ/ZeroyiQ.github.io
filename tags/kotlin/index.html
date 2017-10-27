@@ -6,18 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="zeroyiq.github.io">
-  <title>Android Butterknife使用 | ZeroyiQ</title>
+  <title>Tag: -kotlin | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Android Butterknife使用">
-<meta property="og:url" content="zeroyiq.github.io/posts/programing/2017-06-10-Android-butterknife使用.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="ZeroyiQ">
+<meta property="og:url" content="zeroyiq.github.io/tags/kotlin/index.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
-<meta property="og:updated_time" content="2017-09-11T07:53:56.128Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Butterknife使用">
-<meta name="twitter:description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
+<meta name="twitter:title" content="ZeroyiQ">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -151,87 +147,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Android-butterknife使用" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Android Butterknife使用
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html" class="archive-article-date">
+  	<time datetime="2017-06-13T11:58:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-13</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html">「Kotlin」学习笔记（一）命令行环境搭建</a>
     </h1>
   
 
-        
-        <a href="/posts/programing/2017-06-10-Android-butterknife使用.html" class="archive-article-date">
-  	<time datetime="2017-06-10T01:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- toc -->
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#butter-knife">Butter Knife</a></li>
-<li><a href="#简介">简介</a></li>
-<li><a href="#资源绑定">资源绑定</a></li>
-<li><a href="#非-activity-中绑定">非 Activity 中绑定</a></li>
-<li><a href="#view-列表">View 列表</a></li>
-</ul>
-<!-- tocstop -->
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 <code>butterKnife</code> 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考<a href="http://www.jianshu.com/p/9ad21e548b69" target="_blank" rel="external">Android Butter Knife 框架——最好用的View注入</a>和<a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">官方文档</a>。本人英语较渣，欢迎有余力的同学也去看看官方文档。</p>
-</blockquote>
-<h1 id="butter-knife"><a href="#Butter-Knife" class="headerlink" title="Butter Knife"></a>Butter Knife</h1><p> Butter Knife，是专门为 View 设计的绑定注释，解决需要大量 findViewByID 代码量大的问题。</p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p> 通过 <code>@BindView</code> 注释，并传入一个 View 的 ID，Butter Knife 就能去找到并自动绑定 layout 中对应的 View</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.title) TextView title;</div><div class="line">  <span class="meta">@BindView</span>(R.id.subtitle) TextView subtitle;</div><div class="line">  <span class="meta">@BindView</span>(R.id.footer) TextView footer;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.simple_activity);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>);</div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>代码的生产被用来执行 View 的查询，而不再是缓慢的反射。调用 <code>bind</code> 来生成代码，你可以打开它进行调试。上面生成的代码大致等于如下代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bind</span><span class="params">(ExampleActivity activity)</span> </span>&#123;</div><div class="line">  activity.subtitle = (android.widget.TextView) activity.findViewById(<span class="number">2130968578</span>);</div><div class="line">  activity.footer = (android.widget.TextView) activity.findViewById(<span class="number">2130968579</span>);</div><div class="line">  activity.title = (android.widget.TextView) activity.findViewById(<span class="number">2130968577</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h1 id="资源绑定"><a href="#资源绑定" class="headerlink" title="资源绑定"></a>资源绑定</h1><p>可以使用 <code>@BindBool</code>,<code>@BindColor</code>,<code>@BindDimen</code>,<code>@BindDrawable</code>,<code>@BindInt</code>,<code>@BindString</code>这些绑定注释，通过传入相应的 ID 来 绑定相应的预定义资源</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line">  <span class="meta">@BindString</span>(R.string.title) String title;</div><div class="line">  <span class="meta">@BindDrawable</span>(R.drawable.graphic) Drawable graphic;</div><div class="line">  <span class="meta">@BindColor</span>(R.color.red) <span class="keyword">int</span> red; <span class="comment">// int or ColorStateList field</span></div><div class="line">  <span class="meta">@BindDimen</span>(R.dimen.spacer) Float spacer; <span class="comment">// int (for pixel size) or float (for exact value) field</span></div><div class="line">  <span class="comment">// ...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="非-activity-中绑定"><a href="#非-Activity-中绑定" class="headerlink" title="非 Activity 中绑定"></a>非 Activity 中绑定</h1><p>Butter Knife 中 <code>bind</code> 有多个重载，只要传入相应的布局，在任何你自己的视图中都能使用。</p>
-<p>例如 Fragment 如下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FancyFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button1) Button button1;</div><div class="line">  <span class="meta">@BindView</span>(R.id.button2) Button button2;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span> <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">    View view = inflater.inflate(R.layout.fancy_fragment, container, <span class="keyword">false</span>);</div><div class="line">    ButterKnife.bind(<span class="keyword">this</span>, view);</div><div class="line">    <span class="comment">// TODO Use fields...</span></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>另一种使用是用来简化 list 适配器的过程(Another use is simplifying the view holder pattern inside of a list adapter. 对 Adapter 还不是特别熟练，所以直接将原文贴在这里了 )</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line">  <span class="meta">@Override</span> </div><div class="line">  <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View view, ViewGroup parent)</span> </span>&#123;</div><div class="line">    ViewHolder holder;</div><div class="line">    <span class="keyword">if</span> (view != <span class="keyword">null</span>) &#123;</div><div class="line">      holder = (ViewHolder) view.getTag();</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      view = inflater.inflate(R.layout.whatever, parent, <span class="keyword">false</span>);</div><div class="line">      holder = <span class="keyword">new</span> ViewHolder(view);</div><div class="line">      view.setTag(holder);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    holder.name.setText(<span class="string">"John Doe"</span>);</div><div class="line">    <span class="comment">// etc...</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">    <span class="meta">@BindView</span>(R.id.title) TextView name;</div><div class="line">    <span class="meta">@BindView</span>(R.id.job_title) TextView jobTitle;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewHolder</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">      ButterKnife.bind(<span class="keyword">this</span>, view);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>你可以使用  <code>ButterKnife.bind</code> 在任何你想使用 <code>findViewById</code> 的地方</p>
-<p>其他提供的绑定 API：</p>
-<ul>
-<li>使用一个 Activity 作为 View root 绑定任意对象。如果你使用像 MVC 模式，你可以通过 Controller 所在的 Activity ，使用 <code>ButterKnife.bind(this,activity)</code> 来绑定 Controller</li>
-<li>使用<code>ButterKnife.bind(this)</code>绑定一个布局的子布局。如果你在布局中使用了<code>&lt;merge&gt;</code>标签并且在自定义的控件构造时 inflate 这个布局，你可以在 inflate 之后立即调用它。或者，你可以在<code>onFinishInflate()</code>回调中使用它。</li>
-</ul>
-<h1 id="view-列表"><a href="#View-列表" class="headerlink" title="View 列表"></a>View 列表</h1><p>你可以将多个 View 放在列表或者数组中<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@BindViews</span>(&#123; R.id.first_name, R.id.middle_name, R.id.last_name &#125;)</div><div class="line">List&lt;EditText&gt; nameViews;</div></pre></td></tr></table></figure></p>
-<p>apply 函数能够允许你在一个列表中执行操作</p>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">-kotlin</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -244,96 +201,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:zeroyiq.github.io/posts/programing/2017-06-10-Android-butterknife使用.html" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/posts/programing/2017-06-13-「Kotlin」学习笔记（一）.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          「Kotlin」学习笔记（一）命令行环境搭建
-        
-      </div>
-    </a>
   
   
-    <a href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaFx 8 的学习心路</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -356,9 +234,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
