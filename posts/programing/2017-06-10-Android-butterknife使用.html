@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="zeroyiq.top">
   <title>Android Butterknife使用 | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
+  <meta name="description" content="目录 见右下角浮动框  前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力的同学也去看看官方文档。  Butter Knife Butter Knife，是">
 <meta name="keywords" content="Android,butterknife">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Butterknife使用">
 <meta property="og:url" content="zeroyiq.top/posts/programing/2017-06-10-Android-butterknife使用.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
-<meta property="og:updated_time" content="2017-10-27T05:06:29.256Z">
+<meta property="og:description" content="目录 见右下角浮动框  前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力的同学也去看看官方文档。  Butter Knife Butter Knife，是">
+<meta property="og:updated_time" content="2017-10-27T06:46:50.176Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Butterknife使用">
-<meta name="twitter:description" content="目录  前言 Butter Knife 简介 资源绑定 非 Activity 中绑定 View 列表   前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力">
+<meta name="twitter:description" content="目录 见右下角浮动框  前言 目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 butterKnife 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考Android Butter Knife 框架——最好用的View注入和官方文档。本人英语较渣，欢迎有余力的同学也去看看官方文档。  Butter Knife Butter Knife，是">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -177,16 +177,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><!-- toc -->
-<ul>
-<li><a href="#前言">前言</a></li>
-<li><a href="#butter-knife">Butter Knife</a></li>
-<li><a href="#简介">简介</a></li>
-<li><a href="#资源绑定">资源绑定</a></li>
-<li><a href="#非-activity-中绑定">非 Activity 中绑定</a></li>
-<li><a href="#view-列表">View 列表</a></li>
-</ul>
-<!-- tocstop -->
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><blockquote>
+<p>见右下角浮动框</p>
+</blockquote>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>目前写大创的东西，做Android方面的coding。在参考学长写的项目的时候，看见了这个 <code>butterKnife</code> 框架。想到当初他们有推荐过，目前也确实需要，所以就边学边用了。参考<a href="http://www.jianshu.com/p/9ad21e548b69" target="_blank" rel="external">Android Butter Knife 框架——最好用的View注入</a>和<a href="http://jakewharton.github.io/butterknife/" target="_blank" rel="external">官方文档</a>。本人英语较渣，欢迎有余力的同学也去看看官方文档。</p>
 </blockquote>
@@ -478,19 +471,15 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">-kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">butterknife</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaFX-8</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,7 +491,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaFX-8</a>
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
             
             <div class="clearfix"></div>
@@ -566,7 +555,7 @@ MathJax.Hub.Queue(function() {
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="http://blog.hylstudio.cn/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>「hylstudio」</a>
             </li>
           
             <li class="search-li">
@@ -585,7 +574,7 @@ MathJax.Hub.Queue(function() {
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">对于自己的人生，我和你都不是读者，而是作者。&lt;br&gt; 结局这种东西还是可以改变的吧。</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">ZeroyiQ，&lt;br&gt;BISTU大三软狗&lt;br&gt;&lt;br&gt;对于自己的人生，&lt;br/&gt;目前是一枚前端&lt;br/&gt;&lt;br/&gt;我和你都不是读者，而是作者。&lt;br&gt;结局这种东西还是可以改变的吧。</div>
   	  	
     	</section>
     
