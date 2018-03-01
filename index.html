@@ -158,6 +158,119 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-欧拉角和四元数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/posts/programing/2018-03-01-欧拉角和四元数.html">欧拉角和四元数</a>
+    </h1>
+  
+
+        
+        <a href="/posts/programing/2018-03-01-欧拉角和四元数.html" class="archive-article-date">
+  	<time datetime="2018-03-01T04:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h1><blockquote>
+<p>在 Unity 中 我使用了 <code>transfrom.localEulerAngles.y</code> 去获取旋转角度 y 的值，而并没有用 <code>localRotation</code> 这就涉及到了欧拉角(EulerAngles)和四元数(Quaternion)的概念。</p>
+</blockquote>
+<h1 id="欧拉角eulerangles"><a href="#欧拉角-EulerAngles" class="headerlink" title="欧拉角(EulerAngles)"></a>欧拉角(EulerAngles)</h1><p>百度百科说道，”欧拉角是用来唯一地确定定点转动明体位置的三个一组独立角参量，由章动角θ、进动角ψ和自转角φ组成，为L.欧拉首先提出,故得名。“</p>
+<p>在 Unity 中 EulerAngles 使用三个值（x,y,z）组成的旋转序列来表示角位移，这三个值分别绕三个相互垂直的轴（本地坐标轴）的旋转角度。</p>
+<h2 id="xyz-约定一heading-pitch-bank-约定来自网络"><a href="#XYZ-约定一：heading-pitch-bank-约定（来自网络）" class="headerlink" title="XYZ 约定一：heading-pitch-bank 约定（来自网络）"></a>XYZ 约定一：heading-pitch-bank 约定（来自网络）</h2><ol>
+<li>先将物体坐标系与惯性坐标系重合</li>
+<li>heading 绕此时物体坐标系的 y 轴旋转</li>
+<li>pitch 绕 heading 旋转后的物体坐标系的 x 轴旋转</li>
+<li>bank 绕 heading-pitch 旋转后的物体坐标系的 z 轴旋转</li>
+</ol>
+<h2 id="xyz约定二yaw-pitch-roll-约定-来自unity-5-实践"><a href="#XYZ约定二：yaw-pitch-roll-约定-（来自《Unity-5-实践》）" class="headerlink" title="XYZ约定二：yaw-pitch-roll 约定 （来自《Unity 5 实践》）"></a>XYZ约定二：yaw-pitch-roll 约定 （来自《Unity 5 实践》）</h2><ol>
+<li>先将物体坐标系与惯性坐标系重合</li>
+<li>yaw(偏航) 绕此时物体坐标系的 y 轴旋转</li>
+<li>pitch（偏角） 绕 heading 旋转后的物体坐标系的 x 轴旋转</li>
+<li>roll（侧滚） 绕 heading-pitch 旋转后的物体坐标系的 z 轴旋转</li>
+</ol>
+<h1 id="四元数quaternion"><a href="#四元数（quaternion）" class="headerlink" title="四元数（quaternion）"></a>四元数（quaternion）</h1><p>四元数是一个描述旋转的数学概念，强烈推荐去看一遍B站的一个视频<a href="https://www.bilibili.com/video/av3741034/?from=search&amp;seid=9004324567229697633" target="_blank" rel="external">【Numberphile数字狂】神奇四元数</a>。</p>
+<p>看完视频后，可以简单说，我们在一维空间（X轴）移动需要一个数，这个就是实数（1 or -1）。在二位空间（XY坐标轴）移动和旋转我们需要添加一个数，这个数就是复数i（i²=-1），进入三维空间（xyz坐标轴）移动和旋转我们就需要再添加两个数，构成的就是四元数ijk（i²=j²=k²=ijk=-1）。</p>
+<p>在 Unity 方面 Quaternion 是为了在旋转值之间插值，使得旋转看起来更平滑和自然。三维动画和游戏中常用四元数，如果是欧拉旋转(用xyz轴的转动角表示)，转动的路径常常不是弧形，有时还会造成万向节锁，也就是无法旋转，四元数很好地解决了这个问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> <code>localRotation</code> 是一个四元数，而不是欧拉角，使用 EulerAngles 是为了让旋转更加容易理解，Unity 提供了欧拉角和四元数的自动转换，方便开发人员进行操作。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">欧拉角</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">四元数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity相关</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/programing//" class="article-tag-list-link color3">编程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/posts/programing/2018-03-01-欧拉角和四元数.html">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-软件工程——数据流图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -544,100 +657,6 @@
 
 
   
-    <article id="post-JavaFx-8-的学习心路-挖坑" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">JavaFx 8 的学习心路</a>
-    </h1>
-  
-
-        
-        <a href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html" class="archive-article-date">
-  	<time datetime="2017-06-01T12:33:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><blockquote>
-<p>见右下角浮动框</p>
-</blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，<a href="https://kotlinlang.org/" target="_blank" rel="external">Kotlin</a>好像就挺不错的<code>_(:з」∠)_</code>)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好其实又跑回去，自学了点 Swing，写了点小东西。如今看到 JavaFx 大变样了，又回来填坑。我也只是个菜鸟，本文只能算是我的学习笔记，如果有错误欢迎指出，希望对来者有所帮助。</p>
-</blockquote>
-<h1 id="JavaFX-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a><br>JavaFx 被包含在 Java 8 中，是 Java 8 的应用程序中官方推荐的图形工具包。</p>
-<h1 id="Fx架构"><a href="#Fx架构" class="headerlink" title="Fx架构"></a>Fx架构</h1><p>首先我们要明白新版本的 JavaFx 脱离了原来 Swing 的样子，采用了一种叫做 <code>MVC</code>的设计模式。<br>
-        
-          <a class="article-more-a" href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JavaFX-8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/programing//" class="article-tag-list-link color3">编程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -652,7 +671,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 ZeroyiQ
+    		&copy; 2018 ZeroyiQ
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -756,6 +775,42 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">欧拉角</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">四元数</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Unity相关</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">butterknife</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">JavaFX-8</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">巫师3</a>
               </li>
              
@@ -769,30 +824,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据流图</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">JavaFX-8</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">butterknife</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kotlin</a>
               </li>
             
             <div class="clearfix"></div>

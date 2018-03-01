@@ -6,27 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="zeroyiq.com">
-  <title>JavaFx 8 的学习心路 | ZeroyiQ</title>
+  <title>欧拉角和四元数 | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录 见右下角浮动框  前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好">
-<meta name="keywords" content="JavaFX-8">
+  <meta name="description" content="提出 在 Unity 中 我使用了 transfrom.localEulerAngles.y 去获取旋转角度 y 的值，而并没有用 localRotation 这就涉及到了欧拉角(EulerAngles)和四元数(Quaternion)的概念。  欧拉角(EulerAngles)百度百科说道，”欧拉角是用来唯一地确定定点转动明体位置的三个一组独立角参量，由章动角θ、进动角ψ和自转角φ组成，为L.欧">
+<meta name="keywords" content="欧拉角,四元数,Unity相关">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaFx 8 的学习心路">
-<meta property="og:url" content="zeroyiq.com/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html">
+<meta property="og:title" content="欧拉角和四元数">
+<meta property="og:url" content="zeroyiq.com/posts/programing/2018-03-01-欧拉角和四元数.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="目录 见右下角浮动框  前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好">
-<meta property="og:image" content="/img/2017.7.7.1.png">
-<meta property="og:image" content="/img/2017.7.7.2.png">
-<meta property="og:image" content="/img/2017.7.7.3.png">
-<meta property="og:image" content="/img/2017.7.7.4.png">
-<meta property="og:image" content="/img/2017.7.7.5.png">
-<meta property="og:image" content="/img/2017.7.7.6.png">
-<meta property="og:image" content="/img/2017.7.7.7.png">
-<meta property="og:updated_time" content="2017-10-27T06:49:12.486Z">
+<meta property="og:description" content="提出 在 Unity 中 我使用了 transfrom.localEulerAngles.y 去获取旋转角度 y 的值，而并没有用 localRotation 这就涉及到了欧拉角(EulerAngles)和四元数(Quaternion)的概念。  欧拉角(EulerAngles)百度百科说道，”欧拉角是用来唯一地确定定点转动明体位置的三个一组独立角参量，由章动角θ、进动角ψ和自转角φ组成，为L.欧">
+<meta property="og:updated_time" content="2018-03-01T05:04:41.797Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaFx 8 的学习心路">
-<meta name="twitter:description" content="目录 见右下角浮动框  前言 本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，Kotlin好像就挺不错的_(:з」∠)_)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好">
-<meta name="twitter:image" content="/img/2017.7.7.1.png">
+<meta name="twitter:title" content="欧拉角和四元数">
+<meta name="twitter:description" content="提出 在 Unity 中 我使用了 transfrom.localEulerAngles.y 去获取旋转角度 y 的值，而并没有用 localRotation 这就涉及到了欧拉角(EulerAngles)和四元数(Quaternion)的概念。  欧拉角(EulerAngles)百度百科说道，”欧拉角是用来唯一地确定定点转动明体位置的三个一组独立角参量，由章动角θ、进动角ψ和自转角φ组成，为L.欧">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -165,112 +157,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-JavaFx-8-的学习心路-挖坑" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-欧拉角和四元数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JavaFx 8 的学习心路
+      欧拉角和四元数
     </h1>
   
 
         
-        <a href="/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html" class="archive-article-date">
-  	<time datetime="2017-06-01T12:33:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-01</time>
+        <a href="/posts/programing/2018-03-01-欧拉角和四元数.html" class="archive-article-date">
+  	<time datetime="2018-03-01T04:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><blockquote>
-<p>见右下角浮动框</p>
+        <h1 id="提出"><a href="#提出" class="headerlink" title="提出"></a>提出</h1><blockquote>
+<p>在 Unity 中 我使用了 <code>transfrom.localEulerAngles.y</code> 去获取旋转角度 y 的值，而并没有用 <code>localRotation</code> 这就涉及到了欧拉角(EulerAngles)和四元数(Quaternion)的概念。</p>
 </blockquote>
-<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>本人目前只会 Java 和 C(果然是要抽个时间看看其他语言了，<a href="https://kotlinlang.org/" target="_blank" rel="external">Kotlin</a>好像就挺不错的<code>_(:з」∠)_</code>)，以前学校赶潮流，当 Javafx 出来后就立刻把教学内容改变了，然而之前的版本和如今的版本有了很大的变化。其实我觉得现在才应该更新教学内容，更新到最新的JavaFX 8 的内容才对。当时，Fx其实也还是「笨重」的，而且重点是资料少，中文资料就更别提了。所以只好其实又跑回去，自学了点 Swing，写了点小东西。如今看到 JavaFx 大变样了，又回来填坑。我也只是个菜鸟，本文只能算是我的学习笔记，如果有错误欢迎指出，希望对来者有所帮助。</p>
-</blockquote>
-<h1 id="javafx-8-介绍"><a href="#JavaFX-8-介绍" class="headerlink" title="JavaFX 8 介绍"></a>JavaFX 8 介绍</h1><p>JavaFX<br><a href="http://code.makery.ch/blog/update-to-javafx-8-whats-new/" target="_blank" rel="external">JavaFx what’s New?</a><br>JavaFx 被包含在 Java 8 中，是 Java 8 的应用程序中官方推荐的图形工具包。</p>
-<h1 id="fx架构"><a href="#Fx架构" class="headerlink" title="Fx架构"></a>Fx架构</h1><p>首先我们要明白新版本的 JavaFx 脱离了原来 Swing 的样子，采用了一种叫做 <code>MVC</code>的设计模式。<br><a id="more"></a></p>
-<h2 id="mvc"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>MVC 是三个字母的缩写</p>
-<ul>
-<li>M(Mode):模型层，封装了程序中最底层的数据部分</li>
-<li>V(View):视图层，是程序最上面的一层，是直接面向用户的操作界面</li>
-<li>C(Controller)：控制层，是中间的一层，负责处理用户请求，并且构建何时的模型并将其传递到视图呈现</li>
-</ul>
-<p>这三层是紧密联系在一起的，但又是相互独立的，每一层内部的变化不影响其他层。模块化后能够降低耦合性，可维护性高并且增强了拓展性。</p>
-<h2 id="mvc-在-fx-中的对应关系"><a href="#MVC-在-Fx-中的对应关系" class="headerlink" title="MVC 在 Fx 中的对应关系"></a>MVC 在 Fx 中的对应关系</h2><ul>
-<li>Mode：创建的模型类</li>
-<li>View：用 <code>.fxml</code> 文件表示界面，基于 XML 文件，如果你学过 XML 会发现 FXMl 和 XML 及其相似。(如果你使用的是 IDEA 可以在 Scene Builder 分页中预览图像界面，并且可以使用拖动的方式将左侧的控件直接拖入到预览区)</li>
-<li>Controller：创建的控制方法，响应 View 中用户的操作，修改 Mode 中的数据，并且将新的数据展现先 View 层</li>
-</ul>
-<h1 id="机械分词小程序"><a href="#机械分词小程序" class="headerlink" title="机械分词小程序"></a>机械分词小程序</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>IDEA创建 FX 工程<br><img src="/img/2017.7.7.1.png" alt="IDEA自动生成"></p>
-<p>根据项目添加类<br><img src="/img/2017.7.7.2.png" alt="添加后"></p>
-<ul>
-<li>NLP.java:Mode</li>
-<li>sample.fxml:View</li>
-<li>Controller.java:Controller</li>
-<li>Main.java:主程序入口</li>
-<li>fingerDic.txt:词典</li>
-</ul>
-<h2 id="程序执行结果"><a href="#程序执行结果" class="headerlink" title="程序执行结果"></a>程序执行结果</h2><p><img src="/img/2017.7.7.3.png" alt="程序执行结果"></p>
-<h2 id="nlpjava"><a href="#NLP-java" class="headerlink" title="NLP.java"></a>NLP.java</h2><p>这是机械分词的核心部分，作用是加载「词典」文件。包含一个<code>getSResult()</code>的方法，能够将传入的句子与加载的词典比较，将句子分词后传回一个分词好的 String。</p>
-<p><img src="/img/2017.7.7.4.png" alt="NLP.java"></p>
-<h2 id="samplefxml"><a href="#sample-fxml" class="headerlink" title="sample.fxml"></a>sample.fxml</h2><p>fxml 与 xml 及其相似，都是属于可标记语言。我们切到 Scene Builder 可以看见左边有多种 Containers (容器/布局)可供选择。布局就有点像是房屋规划的图，我们要选择合适的布局，这里仅选择 Anchor Pane 就好。Anchor Pane 可以将控件(如前图的按钮，文本框之类的)锚定到面板的某个位置。<a href="http://blog.csdn.net/theonegis/article/details/50184811" target="_blank" rel="external">了解更多 FX 布局</a></p>
-<p><img src="/img/2017.7.7.5.png" alt="sample.fxml"></p>
-<ol>
-<li>在 <code>AncherPane</code> 中添加一个 <code>fx:controller=&quot;&quot;</code>的属性，内容是 Controller.java 路径</li>
-<li>注意我们在每一个控件中需要添加一个 <code>fx:id=&quot;&quot;</code>的属性，这是为了之后我们在 「Controller.java」中能够找个相应的控件进行操作</li>
-<li>在 Button 控件中添加一个 <code>onAction=&quot;&quot;</code>属性，内容是「#」+点击该按钮要调用的方法(这里是 startNLP,调用自后面的Controller.java中)</li>
+<h1 id="欧拉角eulerangles"><a href="#欧拉角-EulerAngles" class="headerlink" title="欧拉角(EulerAngles)"></a>欧拉角(EulerAngles)</h1><p>百度百科说道，”欧拉角是用来唯一地确定定点转动明体位置的三个一组独立角参量，由章动角θ、进动角ψ和自转角φ组成，为L.欧拉首先提出,故得名。“</p>
+<p>在 Unity 中 EulerAngles 使用三个值（x,y,z）组成的旋转序列来表示角位移，这三个值分别绕三个相互垂直的轴（本地坐标轴）的旋转角度。</p>
+<h2 id="xyz-约定一heading-pitch-bank-约定来自网络"><a href="#XYZ-约定一：heading-pitch-bank-约定（来自网络）" class="headerlink" title="XYZ 约定一：heading-pitch-bank 约定（来自网络）"></a>XYZ 约定一：heading-pitch-bank 约定（来自网络）</h2><ol>
+<li>先将物体坐标系与惯性坐标系重合</li>
+<li>heading 绕此时物体坐标系的 y 轴旋转</li>
+<li>pitch 绕 heading 旋转后的物体坐标系的 x 轴旋转</li>
+<li>bank 绕 heading-pitch 旋转后的物体坐标系的 z 轴旋转</li>
 </ol>
-<h2 id="controllerjava"><a href="#Controller-java" class="headerlink" title="Controller.java"></a>Controller.java</h2><p>整个程序的中间层，sample 中的 Button 调用该类中的 <code>startNLP()</code>方法，通过该方法，Controller 调用 NLP 类，并且将结果返回，Controller 根据返回的结果修改 sample 中 TextArea 的内容。</p>
-<p><img src="/img/2017.7.7.6.png" alt="Controller"></p>
-<p>PS：通过绑定注释<code>@FXML</code>的方法绑定 sample.fxml 中的控件，注意命名要一致。</p>
-<h2 id="mainjava"><a href="#Main-java" class="headerlink" title="Main.java"></a>Main.java</h2><p>程序的主入口。</p>
-<p><img src="/img/2017.7.7.7.png" alt="Main"></p>
-<ol>
-<li>继承自 Application </li>
-<li>重写了<code>start()</code>方法</li>
-<li>设置根节点并加载相应的 fxml 文件</li>
-<li>为基础舞台<code>primaryStage</code>设置标题<code>setTitle()</code>、舞台<code>setScene()</code>(Stage 与 Scene 的关系有点像舞台和舞台上的场景一样。从外到里看，Stage是最外面的部分，Scene是第二层，布局Pane是第三层，最里面就是各种控件)、能否修改大小<code>setResizeable()</code>并展示<code>show()</code>出来</li>
-<li>在主函数中启动<code>launch</code></li>
+<h2 id="xyz约定二yaw-pitch-roll-约定-来自unity-5-实践"><a href="#XYZ约定二：yaw-pitch-roll-约定-（来自《Unity-5-实践》）" class="headerlink" title="XYZ约定二：yaw-pitch-roll 约定 （来自《Unity 5 实践》）"></a>XYZ约定二：yaw-pitch-roll 约定 （来自《Unity 5 实践》）</h2><ol>
+<li>先将物体坐标系与惯性坐标系重合</li>
+<li>yaw(偏航) 绕此时物体坐标系的 y 轴旋转</li>
+<li>pitch（偏角） 绕 heading 旋转后的物体坐标系的 x 轴旋转</li>
+<li>roll（侧滚） 绕 heading-pitch 旋转后的物体坐标系的 z 轴旋转</li>
 </ol>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这就是 FX 最基本的应用了，如果想深入使用，请多使用 Google+文档 能够解决大部分问题。上文中有可能有些地方写的不是很恰当，请多多包涵。Java 8 之后 FX 抛弃了以前长长的代码段的界面形式(要不断调用各种方法)，终于改用了方便FXML的方式，尤其是我正在学习 Android 这种相同的做法，我还是觉得挺不错的。</p>
-<p align="right">填坑完毕        ——2017.7.7  Beijing</p>
-      
+<h1 id="四元数quaternion"><a href="#四元数（quaternion）" class="headerlink" title="四元数（quaternion）"></a>四元数（quaternion）</h1><p>四元数是一个描述旋转的数学概念，强烈推荐去看一遍B站的一个视频<a href="https://www.bilibili.com/video/av3741034/?from=search&amp;seid=9004324567229697633" target="_blank" rel="external">【Numberphile数字狂】神奇四元数</a>。</p>
+<p>看完视频后，可以简单说，我们在一维空间（X轴）移动需要一个数，这个就是实数（1 or -1）。在二位空间（XY坐标轴）移动和旋转我们需要添加一个数，这个数就是复数i（i²=-1），进入三维空间（xyz坐标轴）移动和旋转我们就需要再添加两个数，构成的就是四元数ijk（i²=j²=k²=ijk=-1）。</p>
+<p>在 Unity 方面 Quaternion 是为了在旋转值之间插值，使得旋转看起来更平滑和自然。三维动画和游戏中常用四元数，如果是欧拉旋转(用xyz轴的转动角表示)，转动的路径常常不是弧形，有时还会造成万向节锁，也就是无法旋转，四元数很好地解决了这个问题。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p> <code>localRotation</code> 是一个四元数，而不是欧拉角，使用 EulerAngles 是为了让旋转更加容易理解，Unity 提供了欧拉角和四元数的自动转换，方便开发人员进行操作。</p>
 
       
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.png">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixin.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
+
       
     </div>
     <div class="article-info article-info-index">
@@ -281,7 +211,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">JavaFX-8</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">欧拉角</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">四元数</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Unity相关</a>
         		</li>
       		
 		</ul>
@@ -348,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:zeroyiq.com/posts/programing/2017-06-01-JavaFx-8-的学习心路-挖坑.html" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:zeroyiq.com/posts/programing/2018-03-01-欧拉角和四元数.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/posts/programing/2017-06-10-Android-butterknife使用.html" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Android Butterknife使用
-        
-      </div>
-    </a>
   
-  
-    <a href="/posts/programing/2017-06-01-Hexo-Github-Pages搭建个人独立博客.html" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hexo + Github Pages搭建个人独立博客</div>
+    <a href="/posts/programing/2017-11-10-软件工程——数据流图.html" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">软件工程——数据流图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +329,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">2.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#javafx-8-介绍"><span class="toc-number">3.</span> <span class="toc-text">JavaFX 8 介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fx架构"><span class="toc-number">4.</span> <span class="toc-text">Fx架构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#mvc"><span class="toc-number">4.1.</span> <span class="toc-text">MVC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mvc-在-fx-中的对应关系"><span class="toc-number">4.2.</span> <span class="toc-text">MVC 在 Fx 中的对应关系</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#机械分词小程序"><span class="toc-number">5.</span> <span class="toc-text">机械分词小程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#结构"><span class="toc-number">5.1.</span> <span class="toc-text">结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程序执行结果"><span class="toc-number">5.2.</span> <span class="toc-text">程序执行结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nlpjava"><span class="toc-number">5.3.</span> <span class="toc-text">NLP.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#samplefxml"><span class="toc-number">5.4.</span> <span class="toc-text">sample.fxml</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#controllerjava"><span class="toc-number">5.5.</span> <span class="toc-text">Controller.java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mainjava"><span class="toc-number">5.6.</span> <span class="toc-text">Main.java</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#提出"><span class="toc-number">1.</span> <span class="toc-text">提出</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#欧拉角eulerangles"><span class="toc-number">2.</span> <span class="toc-text">欧拉角(EulerAngles)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xyz-约定一heading-pitch-bank-约定来自网络"><span class="toc-number">2.1.</span> <span class="toc-text">XYZ 约定一：heading-pitch-bank 约定（来自网络）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xyz约定二yaw-pitch-roll-约定-来自unity-5-实践"><span class="toc-number">2.2.</span> <span class="toc-text">XYZ约定二：yaw-pitch-roll 约定 （来自《Unity 5 实践》）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四元数quaternion"><span class="toc-number">3.</span> <span class="toc-text">四元数（quaternion）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
                     </div>
                 </span>
             </div>
