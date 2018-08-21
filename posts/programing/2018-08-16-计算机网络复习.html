@@ -22,7 +22,20 @@
 <meta property="og:image" content="/img/com_network/5.png">
 <meta property="og:image" content="/img/com_network/6.png">
 <meta property="og:image" content="/img/com_network/7.png">
-<meta property="og:updated_time" content="2018-08-20T09:42:54.998Z">
+<meta property="og:image" content="/img/com_network/8.png">
+<meta property="og:image" content="/img/com_network/9.png">
+<meta property="og:image" content="/img/com_network/10.png">
+<meta property="og:image" content="/img/com_network/11.png">
+<meta property="og:image" content="/img/com_network/12.png">
+<meta property="og:image" content="/img/com_network/13.png">
+<meta property="og:image" content="/img/com_network/14.png">
+<meta property="og:image" content="/img/com_network/15.png">
+<meta property="og:image" content="/img/com_network/16.png">
+<meta property="og:image" content="/img/com_network/17.png">
+<meta property="og:image" content="/img/com_network/20.png">
+<meta property="og:image" content="/img/com_network/18.png">
+<meta property="og:image" content="/img/com_network/19.png">
+<meta property="og:updated_time" content="2018-08-21T11:08:03.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络复习">
 <meta name="twitter:description" content="前言 学完计网已经一年之久，为了准备面试因此从头过一遍   章一 概述分组交换 优点： 高效、灵活、迅速、可靠 缺点：分组转发需要排队，造成延迟；分组必须携带首部，造成开销">
@@ -237,6 +250,68 @@
 <li>吧数据链路层的数据看做比特</li>
 <li>考虑多少伏电压代表「1」或「0」<br><img src="/img/com_network/7.png" alt="IP OVER EVERYTHING"></li>
 </ul>
+<h1 id="章二-物理层"><a href="#章二-物理层" class="headerlink" title="章二 物理层"></a>章二 物理层</h1><h2 id="常用的传输媒体"><a href="#常用的传输媒体" class="headerlink" title="常用的传输媒体"></a>常用的传输媒体</h2><ul>
+<li>导向传输媒体（双绞线、同轴电缆、光纤）</li>
+<li>非导向传输媒体（无线电、微波、红外线）</li>
+</ul>
+<h2 id="常见的宽带技术"><a href="#常见的宽带技术" class="headerlink" title="常见的宽带技术"></a>常见的宽带技术</h2><ul>
+<li>ADSL 接入技术</li>
+</ul>
+<p><img src="/img/com_network/8.png" alt="ADSL 接入技术"></p>
+<ul>
+<li>HFC 技术（光纤同轴混合网）</li>
+</ul>
+<p><img src="/img/com_network/9.png" alt="HFC 技术"></p>
+<ul>
+<li>FTTx 接入技术（FTTH/B/C)</li>
+</ul>
+<p><img src="/img/com_network/10.png" alt="FTTx 接入技术"></p>
+<h1 id="章三-数据链路层"><a href="#章三-数据链路层" class="headerlink" title="章三 数据链路层"></a>章三 数据链路层</h1><h2 id="封装成帧"><a href="#封装成帧" class="headerlink" title="封装成帧"></a>封装成帧</h2><p><img src="/img/com_network/11.png" alt="封装过程"></p>
+<p><img src="/img/com_network/12.png" alt="帧开始符、帧结束符"></p>
+<h2 id="透明传输"><a href="#透明传输" class="headerlink" title="透明传输"></a>透明传输</h2><p>当所传送数据中的比特组合恰巧出现了与帧定界符完全一样时，有可靠的措施，<br>使收方不会将这种比特组合的数据误以为是帧定界符。</p>
+<h3 id="字节填充法"><a href="#字节填充法" class="headerlink" title="字节填充法"></a>字节填充法</h3><ul>
+<li>发送端在数据中出现「SOH」（01）和「EOT」（04）相同比特组合之前，插入一个转义字符「ESC」（1B），在数据中出现与转义字符相同比特之前再加一个转义字符</li>
+<li>接收端在数据送往网络层的时候删除插入的转义字符 </li>
+</ul>
+<p><img src="/img/com_network/13.png" alt="字节填充法"></p>
+<h2 id="差错检测"><a href="#差错检测" class="headerlink" title="差错检测"></a>差错检测</h2><p>误码率 = 传输错误比特数 / 传输比特总数</p>
+<h3 id="crc-循环冗余检测-只有检测不能证明可靠传输"><a href="#CRC-循环冗余检测-（只有检测，不能证明可靠传输）" class="headerlink" title="CRC 循环冗余检测 （只有检测，不能证明可靠传输）"></a>CRC 循环冗余检测 （只有检测，不能证明可靠传输）</h3><p>原理：</p>
+<ol>
+<li>假设待发送的数据 M = 1010001101（共k bit）。</li>
+<li>发送端在待发送数据M的后面添加供差错检测用的 n bit <font color="red">冗余码</font>一起发送。</li>
+<li>接收端根据附加在数据M后面的 n bit <font color="red">冗余码</font> 判断是否有错。</li>
+</ol>
+<p>步骤：</p>
+<ol>
+<li>确定生成冗余码位数 n</li>
+<li>在待发送数据 M 后添加 n 个 0，得到（K+n）bit 的数</li>
+<li>用（K+n)bit 的数做为被除数，用多项式生成的系数（二进制串）P 作为除数，进行模二运算</li>
+<li><font color="red">余数 R 就是冗余码</font> ，位数应该比 P 位数少 1 位</li>
+</ol>
+<p><img src="/img/com_network/14.png" alt="计算冗余码"></p>
+<p>检测：</p>
+<ol>
+<li>将接收到的数据（M + R）作为被除数，除以 P</li>
+<li>余数 R 为 0，未出现差错；余数 R 不为0，检测到了差错</li>
+</ol>
+<h2 id="寻址"><a href="#寻址" class="headerlink" title="寻址"></a>寻址</h2><p>保证每一帧都能送到正确的目的站，收方也应知道发方是哪个站</p>
+<p><img src="/img/com_network/15.png" alt="源MAC、目的MAC"></p>
+<h2 id="典型数据链路层协议"><a href="#典型数据链路层协议" class="headerlink" title="典型数据链路层协议"></a>典型数据链路层协议</h2><h3 id="点对点信道pppadsl"><a href="#点对点信道——ppp（ADSL）" class="headerlink" title="点对点信道——ppp（ADSL）"></a>点对点信道——ppp（ADSL）</h3><p><img src="/img/com_network/16.png" alt="PPP 点对点协议"></p>
+<h3 id="广播信道csmacd-协议"><a href="#广播信道———CSMA-CD-协议" class="headerlink" title="广播信道———CSMA/CD 协议"></a>广播信道———CSMA/CD 协议</h3><ul>
+<li>CSMA/CD——载波监听多点接入/碰撞检测</li>
+<li>“<font color="red">多点接入</font>”表示许多个站（计算机）连接在一根总线上</li>
+<li>“<font color="red">载波监听</font>”是指每一个站在发送数据之前先要检测一下总线上是否有其他站在发送数据，如果有，则暂时不要发送数据，以免发生碰撞</li>
+</ul>
+<p><img src="/img/com_network/17.png" alt="碰撞检测"></p>
+<p>争用期：表示一个站完整发送数据是否发生了碰撞（2τ），以太网争用期长度 <font color="red">51.2 μs</font></p>
+<h2 id="mac"><a href="#MAC" class="headerlink" title="MAC"></a>MAC</h2><ul>
+<li>在局域网中，硬件地址又称为物理地址，或 MAC 地址。 </li>
+<li>该地址固化在网卡的ROM中，用来唯一标识局域网中的一台主机。</li>
+</ul>
+<h2 id="mac帧"><a href="#MAC帧" class="headerlink" title="MAC帧"></a>MAC帧</h2><p><img src="/img/com_network/20.png" alt="以太网 V2 MAC帧格式"></p>
+<h2 id="网桥"><a href="#网桥" class="headerlink" title="网桥"></a>网桥</h2><p>当网桥收到一个帧时，并不是向所有的端口转发此帧，先暂存在缓存中。若该帧未出现差错，根据此帧首部中的目的 MAC 地址，然后再确定将该帧从哪一个端口转发出去，还是不转发 。</p>
+<h3 id="自学习建立转发表"><a href="#自学习建立转发表" class="headerlink" title="自学习建立转发表"></a>自学习建立转发表</h3><p><img src="/img/com_network/18.png" alt="自学习建立转发表"></p>
+<h2 id="交换机和-hub集线器"><a href="#交换机和-HUB（集线器）" class="headerlink" title="交换机和 HUB（集线器）"></a>交换机和 HUB（集线器）</h2><p><img src="/img/com_network/19.png" alt="交换机和 HUB 吞吐量对比"></p>
 
       
 
@@ -364,7 +439,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#章一-概述"><span class="toc-number">2.</span> <span class="toc-text">章一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换"><span class="toc-number">2.1.</span> <span class="toc-text">分组交换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#英特网"><span class="toc-number">2.2.</span> <span class="toc-text">英特网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因特网服务提供者ispinternet-service-provider"><span class="toc-number">2.3.</span> <span class="toc-text">因特网服务提供者ISP（Internet Service Provider）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络分类"><span class="toc-number">2.4.</span> <span class="toc-text">计算机网络分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络拓扑结构"><span class="toc-number">2.5.</span> <span class="toc-text">网络拓扑结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络性能指标"><span class="toc-number">2.6.</span> <span class="toc-text">计算机网络性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcpip-体系结构四层"><span class="toc-number">2.7.</span> <span class="toc-text">TCP/IP 体系结构（四层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五层协议体系结构"><span class="toc-number">2.8.</span> <span class="toc-text">五层协议体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-number">2.8.1.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运输层"><span class="toc-number">2.8.2.</span> <span class="toc-text">运输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层"><span class="toc-number">2.8.3.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层"><span class="toc-number">2.8.4.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理层"><span class="toc-number">2.8.5.</span> <span class="toc-text">物理层</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#章一-概述"><span class="toc-number">2.</span> <span class="toc-text">章一 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#分组交换"><span class="toc-number">2.1.</span> <span class="toc-text">分组交换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#英特网"><span class="toc-number">2.2.</span> <span class="toc-text">英特网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因特网服务提供者ispinternet-service-provider"><span class="toc-number">2.3.</span> <span class="toc-text">因特网服务提供者ISP（Internet Service Provider）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络分类"><span class="toc-number">2.4.</span> <span class="toc-text">计算机网络分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络拓扑结构"><span class="toc-number">2.5.</span> <span class="toc-text">网络拓扑结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算机网络性能指标"><span class="toc-number">2.6.</span> <span class="toc-text">计算机网络性能指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#tcpip-体系结构四层"><span class="toc-number">2.7.</span> <span class="toc-text">TCP/IP 体系结构（四层）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五层协议体系结构"><span class="toc-number">2.8.</span> <span class="toc-text">五层协议体系结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#应用层"><span class="toc-number">2.8.1.</span> <span class="toc-text">应用层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运输层"><span class="toc-number">2.8.2.</span> <span class="toc-text">运输层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络层"><span class="toc-number">2.8.3.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层"><span class="toc-number">2.8.4.</span> <span class="toc-text">数据链路层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#物理层"><span class="toc-number">2.8.5.</span> <span class="toc-text">物理层</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#章二-物理层"><span class="toc-number">3.</span> <span class="toc-text">章二 物理层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用的传输媒体"><span class="toc-number">3.1.</span> <span class="toc-text">常用的传输媒体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见的宽带技术"><span class="toc-number">3.2.</span> <span class="toc-text">常见的宽带技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#章三-数据链路层"><span class="toc-number">4.</span> <span class="toc-text">章三 数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#封装成帧"><span class="toc-number">4.1.</span> <span class="toc-text">封装成帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#透明传输"><span class="toc-number">4.2.</span> <span class="toc-text">透明传输</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字节填充法"><span class="toc-number">4.2.1.</span> <span class="toc-text">字节填充法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#差错检测"><span class="toc-number">4.3.</span> <span class="toc-text">差错检测</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#crc-循环冗余检测-只有检测不能证明可靠传输"><span class="toc-number">4.3.1.</span> <span class="toc-text">CRC 循环冗余检测 （只有检测，不能证明可靠传输）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#寻址"><span class="toc-number">4.4.</span> <span class="toc-text">寻址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#典型数据链路层协议"><span class="toc-number">4.5.</span> <span class="toc-text">典型数据链路层协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#点对点信道pppadsl"><span class="toc-number">4.5.1.</span> <span class="toc-text">点对点信道——ppp（ADSL）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#广播信道csmacd-协议"><span class="toc-number">4.5.2.</span> <span class="toc-text">广播信道———CSMA/CD 协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mac"><span class="toc-number">4.6.</span> <span class="toc-text">MAC</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mac帧"><span class="toc-number">4.7.</span> <span class="toc-text">MAC帧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网桥"><span class="toc-number">4.8.</span> <span class="toc-text">网桥</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自学习建立转发表"><span class="toc-number">4.8.1.</span> <span class="toc-text">自学习建立转发表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#交换机和-hub集线器"><span class="toc-number">4.9.</span> <span class="toc-text">交换机和 HUB（集线器）</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
