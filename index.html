@@ -184,6 +184,133 @@
 <li>函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址</li>
 <li>Stack 支持子程序调用</li>
 </ul>
+<h1 id="数学逻辑"><a href="#数学逻辑" class="headerlink" title="数学逻辑"></a>数学逻辑</h1><h2 id="三门问题"><a href="#三门问题" class="headerlink" title="三门问题"></a>三门问题</h2><p>问题： 有 4 扇门，背后藏了三只羊和一辆车，假如你选了 1 号门。此时主持人开了一扇门（3 号），背后是一只羊，请问你会不会选择重选？</p>
+<p>这题其实我的直觉用逆向思维挺对的，然而还是写错了 GG，其实想想直接列举可能会快的多，而且清晰明了。</p>
+<p>这道题的原题是三门问题亦成为蒙提霍尔问题。我看完了一堆的回答，我觉得这个解释会通俗易懂点。</p>
+<ul>
+<li>最初选择羊是 3/4 的概率，你最后再选羊（输的）的机会就是  = 1/2  3/4 &gt; 1/2，重新选择后选到羊的概率会下降，所以应该重选。这段还是有问题，明天我写段代码修改下*</li>
+</ul>
+<p>把这个问题变化下，56 张扑克牌选一个大王，现在去掉了 54 个不是大王的牌，问你会重新选择么？ 这就很明显的对比出来了 1/56 与 1/2</p>
+<p><strong> 全部举例可能 （c：车 y：羊 √：选择 X：打开 -：换到） </strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">C</th>
+<th style="text-align:center">y1</th>
+<th style="text-align:center">y2</th>
+<th style="text-align:center">y3</th>
+<th style="text-align:center">P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+</tbody>
+</table>
+<p>赢的概率 3/8 &gt; 不换的 2/8</p>
 
       
 

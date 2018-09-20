@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="zeroyiq.com">
   <title>面试题总结 | ZeroyiQ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用">
+  <meta name="description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用  数学逻辑三门问题问题： 有 4 扇门，背后藏了三只羊和一辆车，假如你选了 1 号门。此时主持人开了一扇门（3 号），">
 <meta name="keywords" content="面试,总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面试题总结">
 <meta property="og:url" content="zeroyiq.com/posts/programing/2018-09-09-面试题总结.html">
 <meta property="og:site_name" content="ZeroyiQ">
-<meta property="og:description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用">
-<meta property="og:updated_time" content="2018-09-09T07:03:25.544Z">
+<meta property="og:description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用  数学逻辑三门问题问题： 有 4 扇门，背后藏了三只羊和一辆车，假如你选了 1 号门。此时主持人开了一扇门（3 号），">
+<meta property="og:updated_time" content="2018-09-20T14:04:29.797Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试题总结">
-<meta name="twitter:description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用">
+<meta name="twitter:description" content="本篇文章用以收录个人面试中遇到的问题和刷题中的知识点。  数据结构栈（stack） 对于X86，Stack 的增长方向是从高地址到低地址，堆（heap） 的增长方向是从低地址到高地址 函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址 Stack 支持子程序调用  数学逻辑三门问题问题： 有 4 扇门，背后藏了三只羊和一辆车，假如你选了 1 号门。此时主持人开了一扇门（3 号），">
   
     <link rel="alternative" href="/atom.xml" title="ZeroyiQ" type="application/atom+xml">
   
@@ -183,6 +183,133 @@
 <li>函数调用入栈顺序 最右参数 → … → 最左参数 → 函数返回地址</li>
 <li>Stack 支持子程序调用</li>
 </ul>
+<h1 id="数学逻辑"><a href="#数学逻辑" class="headerlink" title="数学逻辑"></a>数学逻辑</h1><h2 id="三门问题"><a href="#三门问题" class="headerlink" title="三门问题"></a>三门问题</h2><p>问题： 有 4 扇门，背后藏了三只羊和一辆车，假如你选了 1 号门。此时主持人开了一扇门（3 号），背后是一只羊，请问你会不会选择重选？</p>
+<p>这题其实我的直觉用逆向思维挺对的，然而还是写错了 GG，其实想想直接列举可能会快的多，而且清晰明了。</p>
+<p>这道题的原题是三门问题亦成为蒙提霍尔问题。我看完了一堆的回答，我觉得这个解释会通俗易懂点。</p>
+<ul>
+<li>最初选择羊是 3/4 的概率，你最后再选羊（输的）的机会就是  = 1/2  3/4 &gt; 1/2，重新选择后选到羊的概率会下降，所以应该重选。这段还是有问题，明天我写段代码修改下*</li>
+</ul>
+<p>把这个问题变化下，56 张扑克牌选一个大王，现在去掉了 54 个不是大王的牌，问你会重新选择么？ 这就很明显的对比出来了 1/56 与 1/2</p>
+<p><strong> 全部举例可能 （c：车 y：羊 √：选择 X：打开 -：换到） </strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">C</th>
+<th style="text-align:center">y1</th>
+<th style="text-align:center">y2</th>
+<th style="text-align:center">y3</th>
+<th style="text-align:center">P</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输 ：1/12</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">赢： 1/16</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">X</td>
+<td style="text-align:center">√</td>
+<td style="text-align:center">输： 1/16</td>
+</tr>
+</tbody>
+</table>
+<p>赢的概率 3/8 &gt; 不换的 2/8</p>
 
       
 
@@ -341,7 +468,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈stack"><span class="toc-number">1.1.</span> <span class="toc-text">栈（stack）</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据结构"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#栈stack"><span class="toc-number">1.1.</span> <span class="toc-text">栈（stack）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数学逻辑"><span class="toc-number">2.</span> <span class="toc-text">数学逻辑</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#三门问题"><span class="toc-number">2.1.</span> <span class="toc-text">三门问题</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
